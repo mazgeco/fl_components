@@ -10,7 +10,7 @@ class ListView2Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ListView Tipo 2'),
+        title: const Text('ListView Tipo 2')
       ),
       body: ListView.separated(
         itemCount: options.length,
@@ -18,7 +18,11 @@ class ListView2Screen extends StatelessWidget {
         itemBuilder: (context, index) => ListTile(
           leading: const Icon(Icons.ac_unit),
           title: Text(options[index]),
-          trailing: const Icon(Icons.arrow_forward_ios_outlined)
+          trailing: const Icon(Icons.arrow_forward_ios_outlined),
+          onTap: (){
+            final game = options[index];
+            print(game);
+          }
         )
       )
     );
