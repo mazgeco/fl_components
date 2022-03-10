@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class AlertScreen extends StatelessWidget {
               onPressed: () => Navigator.pop(context)
             ),
             TextButton(
-              child: const Text('Cancelar'),
+              child: const Text('Ok'),
               onPressed: () => Navigator.pop(context)
             )
           ],
@@ -73,7 +74,9 @@ class AlertScreen extends StatelessWidget {
              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
              child: Text('Mostrar alerta', style: TextStyle(fontSize: 16)),
            ),
-           onPressed: () => displayDialogIOS(context)
+           onPressed: () => Platform.isAndroid
+                          ? displayDialogAndroid(context) 
+                          : displayDialogIOS(context)
          )
       ),
       floatingActionButton: FloatingActionButton(
