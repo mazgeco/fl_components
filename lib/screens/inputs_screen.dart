@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fl_components/widgets/custom_input_field.dart';
 
 class InputsScreen extends StatelessWidget {
    
@@ -14,15 +15,18 @@ class InputsScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
-            children: [
-              TextFormField(
-                autofocus: true,
-                initialValue: 'Gabby Zapata',
-                textCapitalization: TextCapitalization.words,
-                onChanged: (value) {
-                  print(value);
-                },
-              )
+            children: const [
+              CustomInputField(labelText: 'Nombre', hindText: 'Nombre del usuario'),
+              SizedBox(height: 8),
+
+              CustomInputField(labelText: 'Apellido', hindText: 'Apellido del usuario'),
+              SizedBox(height: 8),
+
+              CustomInputField(labelText: 'Correo', hindText: 'Correo del usuario', textInputType: TextInputType.emailAddress),
+              SizedBox(height: 8),
+              
+              CustomInputField(labelText: 'Contraseña', hindText: 'Contraseña del usuario', isPassword: true,),
+              SizedBox(height: 8),
             ],
           ),
         ),
